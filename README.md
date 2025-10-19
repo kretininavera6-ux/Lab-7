@@ -10,6 +10,7 @@
 Используется формула для определения дня недели 1 января
 Для заданной даты вычисляется смещение от 1 января
 Определение дня недели через оператор switch
+<img width="2644" height="3448" alt="image" src="https://github.com/user-attachments/assets/53430a08-6f0e-4513-bbd9-a4f4649ddba1" />
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
@@ -60,8 +61,6 @@ int main() {
     }
     return 0;
 }
-
-<img width="2644" height="3448" alt="image" src="https://github.com/user-attachments/assets/53430a08-6f0e-4513-bbd9-a4f4649ddba1" />
 
 
 
