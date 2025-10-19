@@ -1,31 +1,57 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.9.34728.123
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Project19", "Project19.vcxproj", "{B8C64812-3439-43C4-ADDA-BD7AFE8819E7}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B8C64812-3439-43C4-ADDA-BD7AFE8819E7}.Debug|x64.ActiveCfg = Debug|x64
-		{B8C64812-3439-43C4-ADDA-BD7AFE8819E7}.Debug|x64.Build.0 = Debug|x64
-		{B8C64812-3439-43C4-ADDA-BD7AFE8819E7}.Debug|x86.ActiveCfg = Debug|Win32
-		{B8C64812-3439-43C4-ADDA-BD7AFE8819E7}.Debug|x86.Build.0 = Debug|Win32
-		{B8C64812-3439-43C4-ADDA-BD7AFE8819E7}.Release|x64.ActiveCfg = Release|x64
-		{B8C64812-3439-43C4-ADDA-BD7AFE8819E7}.Release|x64.Build.0 = Release|x64
-		{B8C64812-3439-43C4-ADDA-BD7AFE8819E7}.Release|x86.ActiveCfg = Release|Win32
-		{B8C64812-3439-43C4-ADDA-BD7AFE8819E7}.Release|x86.Build.0 = Release|Win32
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {C02B0529-F592-4755-83F8-312AE0A72D6F}
-	EndGlobalSection
-EndGlobal
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+    setlocale(LC_ALL, "Rus");
+
+    int year;
+    int k; // день января (например, 31)
+
+    printf("Введите год: ");
+    scanf("%d", &year);
+    printf("Введите число января: ");
+    scanf("%d", &k);
+    // Проверка на високосный год
+    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+        printf("Год %d является високосным!\n", year);
+        return 1;
+    }
+    printf("Год %d - невисокосный\n", year);
+    // Формула для определения дня недели 1 января
+    int day_of_week_jan1 = (year + (year - 1) / 4 - (year - 1) / 100 + (year - 1) / 400) % 7;
+    // День недели для k-го января
+    int target_day = (day_of_week_jan1 + k - 1) % 7;
+
+    printf("%d января %d года - ", k, year);
+
+    switch (target_day) {
+    case 0:
+        printf("воскресенье\n");
+        break;
+    case 1:
+        printf("понедельник\n");
+        break;
+    case 2:
+        printf("вторник\n");
+        break;
+    case 3:
+        printf("среда\n");
+        break;
+    case 4:
+        printf("четверг\n");
+        break;
+    case 5:
+        printf("пятница\n");
+        break;
+    case 6:
+        printf("суббота\n");
+        break;
+    default:
+        printf("ошибка вычисления\n");
+    }
+
+    return 0;
+}﻿
+
+
