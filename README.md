@@ -14,13 +14,10 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <locale.h>
-
 int main() {
     setlocale(LC_ALL, "Rus");
-
     int year;
     int k; // день января (например, 31)
-
     printf("Введите год: ");
     scanf("%d", &year);
     printf("Введите число января: ");
@@ -35,9 +32,7 @@ int main() {
     int day_of_week_jan1 = (year + (year - 1) / 4 - (year - 1) / 100 + (year - 1) / 400) % 7;
     // День недели для k-го января
     int target_day = (day_of_week_jan1 + k - 1) % 7;
-
     printf("%d января %d года - ", k, year);
-
     switch (target_day) {
     case 0:
         printf("воскресенье\n");
@@ -63,7 +58,6 @@ int main() {
     default:
         printf("ошибка вычисления\n");
     }
-
     return 0;
 }
 
